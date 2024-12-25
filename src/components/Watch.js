@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { YOUTUBE_APIKEY } from "../utils/constants";
 import Comments from "./Comments";
 import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 
 const Watch = () => {
   const [searchParams] = useSearchParams();
@@ -55,33 +56,35 @@ const Watch = () => {
   };
 
   return (
-    <div className="mx-20 my-3">
-      <iframe
-        className="rounded-lg "
-        width="930"
-        height="530"
-        src={
-          "https://www.youtube.com/embed/" +
-          searchParams.get("v") +
-          "?si=_-PPl6L1bV_W2QdJ&autoplay=1"
-        }
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      ></iframe>
+    <div className="ml-20 my-3 w-full">
+      <div className="flex">
+        <div>
+          <iframe
+            className="rounded-lg "
+            width="930"
+            height="530"
+            src={
+              "https://www.youtube.com/embed/" +
+              searchParams.get("v") +
+              "?si=_-PPl6L1bV_W2QdJ&autoplay=1"
+            }
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+        <div className="w-full mx-2">
+          <LiveChat />
+        </div>
+      </div>
       <h1 className="font-bold text-xl my-2">{title}</h1>
       <div className="font-semibold text-md bg-gray-200 p-3 rounded-xl w-[930px]">
         <Split_Description description={description} />
       </div>
       <div>
         <h1 className="font-bold text-2xl my-2">Comments: </h1>
-        {/* {!comments
-          ? null
-          : comments.map((comment, index) => (
-              <Comments index={index} comment={comment} />
-            ))} */}
         <CommentsContainer />
       </div>
     </div>

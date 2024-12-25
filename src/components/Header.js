@@ -53,7 +53,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="grid grid-flow-col p-2 shadow-lg">
+    <div className="grid grid-flow-col p-2 shadow-lg items-center">
       <div className="flex col-span-2">
         <img
           src={HAMBURGER_ICON}
@@ -99,8 +99,8 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="col-span-1">
-        <img src={USER_ICON} alt="user" className="w-10 h-10 mt-2" />
+      <div className="col-span-1 justify-self-end pr-2">
+        <img src={USER_ICON} alt="user" className="w-10 h-10" />
       </div>
     </div>
   );
